@@ -1,0 +1,63 @@
+Installation of Tomcat on Linux Server
+In this session, we will discuss the installation of Tomcat on a Linux Server.
+
+Prerequisites
+You must be logged in via SSH as a sudo or root user to install the packages.
+Ubuntu 24.04 Server
+
+$ sudo su -
+
+# sudo apt update
+
+Step 1: Install Java 17
+# sudo apt install openjdk-17-jre -y
+
+Step 1.1: Check Java Installation
+Check whether Java is installed using the following command:
+# java -version
+
+Step 2: Download Tomcat 10
+Go to the Tomcat official page and download the Tomcat 10.1.49 binary tar file in the /opt directory.
+
+URL: https://tomcat.apache.org/
+
+cd /opt/
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.49/bin/apache-tomcat-10.1.49.tar.gz
+
+
+Step 3: Untar Tomcat
+Untar the Tomcat using the following command:
+
+$ sudo tar -xvf apache-tomcat-10.1.49.tar.gz
+
+Note:
+
+x = extract
+v = verbose
+f = file
+
+Step 4: Rename Tomcat Directory
+Rename the Tomcat directory using the following command:
+$ sudo mv apache-tomcat-10.1.49 tomcat
+
+Step 5: Create Tomcat User
+As a good security practice, it is not recommended to run Tomcat with root privileges. Create a new user named tomcat to run the Tomcat service.
+
+Step 5.1: Create Tomcat User
+sudo useradd tomcat
+Check if the user is created:
+#sudo id tomcat
+
+Step 5.2: Change Ownership of Tomcat Directory
+sudo chown -R tomcat:tomcat tomcat
+
+Step 6: Start Tomcat
+To start Tomcat, use the following command:
+$ sudo sh /opt/tomcat/bin/startup.sh
+
+Step 7: Stop Tomcat
+To stop Tomcat, use the following command:
+$ sudo sh /opt/tomcat/bin/shutdown.sh
+
+Step 8: Enable Port 8080
+To access the Tomcat GUI, first enable the 8080 port number.

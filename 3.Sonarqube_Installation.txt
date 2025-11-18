@@ -1,0 +1,39 @@
+Steps to set up Sonarqube Server
+--------------------------------
+
+Create AWS Ec2 instance(Instance type must be >= t2.small) and login using ec2-user
+
+Enable port 9000 in the respective security group/instance
+
+Install Java 17 as the root user
+      Step_1: sudo -i #Changing as root user
+      Step_2: #sudo apt update
+      Step_3: sudo apt install openjdk-17-jre -y
+      Step_3: java -version
+
+Download Sonarqube from the below URL into /opt folder.
+  -> cd /opt
+  -> sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.1.69595.zip
+
+unzip sonarqube
+  -> sudo unzip sonarqube-9.9.1.69595.zip
+
+Create a user and add it as owner to opt/sonarqube-9.9.1.69595 folder
+  -> sudo useradd sonaradmin
+  -> sudo passwd sonaradmin
+  -> sudo chown -R sonaradmin:sonaradmin sonarqube-9.9.1.69595 
+
+Switch as sonaradmin user
+  -> su sonaradmin
+
+Start the sonar
+  -> sh /opt/sonarqube-9.9.1.69595/bin/linux-x86-64/sonar.sh start
+
+Now you can access Sonarqube from the browser
+ -URL: http://Public-IP:9000
+
+Default Sonarqube credentials 
+ Username: admin
+ Password: admin
+
+==> After login change the default password for Best practice 

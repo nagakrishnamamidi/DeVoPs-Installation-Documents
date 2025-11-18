@@ -1,0 +1,163 @@
+Sonatype Nexus Repository Server Installation in Ubuntu Linux Server.
+
+Pre-Requisites:
+
+Java (JDK)
+Run the below commands to install Java and Nexus.
+Install Java
+
+Login as a root user
+sudo su -
+
+#sudo apt update
+
+#sudo apt install openjdk-17-jre -y
+
+Verify Java is Installed
+command:- #java -version
+
+Now, you can proceed with installing Sonatype Nexus Repository.
+
+
+
+Nexus Repository latest Version Click on https://help.sonatype.com/en/download-archives---repository-manager-3.html
+
+Note: As of release 3.85.0, the Unix archive comes bundled with a platform-specific JDK. This means that the Unix archive cannot be used on a Mac. No need to install Java.
+ 
+
+Login as a root user
+sudo su -
+cd /opt
+wget https://download.sonatype.com/nexus/3/nexus-3.85.0-03-linux-x86_64.tar.gz
+
+run command ll
+
+we need to untar them.for this,
+
+
+# tar -xvf nexus-3.85.0-03-linux-x86_64.tar.gz
+run the command ll and check it.
+
+instead of giving lenghthy name we are going to rename it.
+# mv nexus-3.85.0-03 nexus
+for checking this run the command ll.
+
+#cd nexus/
+#ll
+
+note:-OSS-LICENSE.txt used for practising purpose.
+      PRO-LICENSE.txt uesd for real time senarious.....(additional features)
+
+#cd bin/
+#ll
+#vim nexus
+
+ {start|stop|run|run-redirect|status|restart|force-reload}
+
+#vim nexus.rc
+note:By default nexus is running in the root user.if you want to be it run in the different user.we have to comes into this nexus.rc and change the options...
+
+#cd ..
+#ll  
+
+#cd lib/  (lib directory contains jar files related to the specific nexus..
+
+#cd..
+#ll
+
+#cd sonatype-work/
+#ll
+#cd nexus3/ (nexus3 version)
+#ll
+#cd log/
+#ll
+
+#cd ..
+#cd /opt/
+#ll
+
+#sudo adduser nexus
+
+Check if the user is created:
+#sudo id nexus
+
+for setting passwOrd:
+#passwd nexus
+
+New password:
+Retype new password:
+
+Change the ownership of the nexus and sonatype-work directories:
+#sudo chown -R nexus:nexus nexus
+
+for checking running ll command.
+#ll
+
+#sudo chown -R nexus:nexus sonatype-work/
+
+for checking running ll command.
+#ll
+
+Update the Nexus User in Nexus Configuration:
+Edit the /opt/nexus/bin/nexus.rc file and set the user to nexus:
+
+#cd nexus/bin/
+#ll
+#vim nexus.rc
+
+
+run_as_user="nexus"
+
+#ll
+
+Start Nexus using the command below:
+
+#sh nexus or ./nexus
+
+#sh nexus status
+
+#sh nexus start
+
+#sh nexus status
+
+for checking logs we have to open another putty session and paste the public ip of the same Sonatype nexus repository IP....
+Login as a root user
+sudo su -
+cd /opt/
+#ll
+#cd sonatype-work/
+#ll
+#cd nexus3/
+#ll
+#cd log/
+#ll
+#pwd
+#ll
+
+#sh nexus
+#sh nexus run
+#ll
+#vim nexus.vmoptions
+
+#-Djava.endorsed.dirs=lib/endorsed
+
+#sh nexus run
+
+open second putty session and run ll command.
+
+#cat nexus.log
+
+#sh nexus stop
+
+#sh nexus start
+
+#sh nexus status
+
+#ps -ef |grep nexus
+
+
+
+
+
+
+

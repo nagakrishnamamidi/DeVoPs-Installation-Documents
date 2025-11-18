@@ -1,0 +1,31 @@
+sudo apt update
+
+sudo apt install openjdk-17-jre -y
+
+java -version
+
+cd /opt/
+
+sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
+
+sudo tar -xvf apache-maven-3.9.11-bin.tar.gz
+
+
+sudo mv apache-maven-3.9.11 maven
+
+vim /etc/profile.d/maven.sh  
+
+# Apache Maven Environment Variables
+# MAVEN_HOME for Maven 1 - M2_HOME for Maven 2
+export M2_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+
+sudo chmod 777 /etc/profile.d/maven.sh
+
+source /etc/profile.d/maven.sh
+
+mvn --version
+
+mvn archetype:generate
+
+
