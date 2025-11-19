@@ -15,8 +15,7 @@ Download Sonarqube from the below URL into /opt folder.
   -> cd /opt
   -> sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.7.0.96327.zip
 unzip sonarqube
-  -> sudo unzip sonarqube-9.9.1.69595.zip
-
+  -> sudo unzip sonarqube/sonarqube-10.7.0.96327.zip
 Create a user and add it as owner to opt/sonarqube-9.9.1.69595 folder
   -> sudo useradd sonaradmin
   -> sudo passwd sonaradmin
