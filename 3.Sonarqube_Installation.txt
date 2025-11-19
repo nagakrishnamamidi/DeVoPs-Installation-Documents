@@ -16,16 +16,16 @@ Download Sonarqube from the below URL into /opt folder.
   -> sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.7.0.96327.zip
 unzip sonarqube
   -> sudo unzip sonarqube/sonarqube-10.7.0.96327.zip
-Create a user and add it as owner to opt/sonarqube-9.9.1.69595 folder
+Create a user and add it as owner to opt/sonarqube-10.7.0.96327 folder
   -> sudo useradd sonaradmin
   -> sudo passwd sonaradmin
-  -> sudo chown -R sonaradmin:sonaradmin sonarqube-9.9.1.69595 
+  -> sudo chown -R sonaradmin:sonaradmin sonarqube-10.7.0.96327 
 
 Switch as sonaradmin user
   -> su sonaradmin
 
 Start the sonar
-  -> sh /opt/sonarqube-9.9.1.69595/bin/linux-x86-64/sonar.sh start
+  -> sh /opt/sonarqube-10.7.0.96327/bin/linux-x86-64/sonar.sh start
 
 Now you can access Sonarqube from the browser
  -URL: http://Public-IP:9000
